@@ -122,23 +122,28 @@ export default function WaitlistModal({
       return
     }
     setStatus('loading')
-    const result = await submitWaitlist({
-      phone: digits,
-      countryCode: selected.code,
-      countryName: selected.name,
-      currency: selected.currency,
-    })
-    if ('success' in result) {
-      setStatus('success')
-    } else {
-      setStatus('idle')
-      if (result.error === 'duplicate') {
-        setErrorMsg('This number is already on the waitlist.')
-      } else if (result.error === 'rate_limited') {
-        setErrorMsg('Too many attempts. Please try again later.')
+    try {
+      const result = await submitWaitlist({
+        phone: digits,
+        countryCode: selected.code,
+        countryName: selected.name,
+        currency: selected.currency,
+      })
+      if ('success' in result) {
+        setStatus('success')
       } else {
-        setErrorMsg('Something went wrong. Please try again.')
+        setStatus('idle')
+        if (result.error === 'duplicate') {
+          setErrorMsg('This number is already on the waitlist.')
+        } else if (result.error === 'rate_limited') {
+          setErrorMsg('Too many attempts. Please try again later.')
+        } else {
+          setErrorMsg('Something went wrong. Please try again.')
+        }
       }
+    } catch {
+      setStatus('idle')
+      setErrorMsg('Something went wrong. Please try again.')
     }
   }
 
