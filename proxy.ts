@@ -10,7 +10,7 @@ function getLocale(request: NextRequest): string {
   return locales.includes(preferred) ? preferred : defaultLocale
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   const pathnameHasLocale = locales.some(
