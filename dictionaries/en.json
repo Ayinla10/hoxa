@@ -1,0 +1,215 @@
+{
+  "nav": {
+    "howItWorks": "How It Works",
+    "features": "Features",
+    "security": "Security",
+    "faq": "FAQ",
+    "startExchanging": "Start Exchanging",
+    "becomeASeller": "Become a Seller"
+  },
+  "hero": {
+    "headline": "Africa's Trusted P2P Exchange Platform",
+    "subheadline": "HOXA protects every exchange with escrow-controlled transactions, live status tracking, seller reputation scoring, and secure payment confirmation.",
+    "ctaPrimary": "Join the Waitlist",
+    "ctaSecondary": "Become a Seller",
+    "badge": "Escrow Protected",
+    "walletLabel": "HOXA Wallet",
+    "balanceLabel": "Available Balance",
+    "balance": "GHS 12,450.00",
+    "rateLabel": "Live Rate",
+    "rate": "1 CFA = 16.13 GHS",
+    "statusLabel": "Transaction Protected",
+    "statusValue": "Escrow Active"
+  },
+  "trust": {
+    "title": "Built on Trust, Backed by Technology",
+    "items": [
+      { "label": "Escrow Protected", "desc": "Funds held safely until both parties confirm" },
+      { "label": "KYC Verified Sellers", "desc": "Every seller is identity-verified" },
+      { "label": "Real-Time Tracking", "desc": "Monitor every transaction live" },
+      { "label": "Secure Confirmation", "desc": "Payment confirmed before release" },
+      { "label": "Reputation Marketplace", "desc": "Trade only with trusted sellers" }
+    ]
+  },
+  "howItWorks": {
+    "title": "How HOXA Works",
+    "subtitle": "Four simple steps to a protected exchange",
+    "steps": [
+      { "step": "01", "title": "Choose a trusted seller", "desc": "Browse verified sellers with reputation scores and competitive rates." },
+      { "step": "02", "title": "Send payment securely", "desc": "Initiate your transfer. Funds are held in escrow until the deal is complete." },
+      { "step": "03", "title": "Upload proof of payment", "desc": "Submit your payment confirmation directly in the app." },
+      { "step": "04", "title": "Escrow completes the transaction", "desc": "Seller confirms receipt and escrow releases funds automatically." }
+    ]
+  },
+  "features": {
+    "title": "Everything You Need for Safe Exchange",
+    "subtitle": "Purpose-built for the CFA ⇄ GHS corridor",
+    "items": [
+      { "title": "Escrow-Protected Transactions", "desc": "Funds are held securely until both parties confirm the exchange is complete." },
+      { "title": "Real-Time Transaction Tracking", "desc": "Watch your exchange progress live with status updates at every step." },
+      { "title": "Verified Sellers Only", "desc": "Every seller passes KYC verification before listing on HOXA." },
+      { "title": "Seller Reputation Scores", "desc": "Make informed decisions with transparent ratings from real exchanges." },
+      { "title": "Rate Alerts", "desc": "Get notified when your target rate is available in the market." },
+      { "title": "Dispute Resolution", "desc": "Our team steps in if anything goes wrong to ensure a fair outcome." }
+    ]
+  },
+  "escrow": {
+    "title": "The Escrow Advantage",
+    "subtitle": "No more trusting strangers with your money",
+    "body": "Traditional P2P exchanges rely entirely on trust between two people. HOXA changes that with a technology-enforced escrow system — your funds are locked in a secure hold and only released when both parties confirm the transaction is complete.",
+    "points": [
+      "Funds locked before exchange begins",
+      "Release triggered only by confirmation",
+      "Automatic protection against fraud",
+      "Full dispute resolution support"
+    ],
+    "tagline": "Safer than WhatsApp. Smarter than the street."
+  },
+  "appShowcase": {
+    "title": "The Smarter Way to Exchange",
+    "subtitle": "HOXA on mobile — designed for speed, clarity, and security",
+    "features": [
+      "One-tap seller search",
+      "Live rate dashboard",
+      "Escrow status tracker",
+      "Instant notifications"
+    ]
+  },
+  "reputation": {
+    "title": "A Marketplace Built on Reputation",
+    "subtitle": "Know who you're trading with before you send a single cedi",
+    "body": "Every seller on HOXA builds a public reputation through verified exchanges. Scores are calculated from transaction history, completion rate, and buyer reviews — giving you full visibility before you commit.",
+    "stats": [
+      { "value": "98%", "label": "Completion Rate" },
+      { "value": "4.9★", "label": "Avg. Seller Rating" },
+      { "value": "0", "label": "Unresolved Disputes" }
+    ],
+    "sellerCard": {
+      "name": "Kofi A.",
+      "badge": "Top Seller",
+      "trades": "342 trades",
+      "rating": "4.9",
+      "rate": "1 CFA = 16.13 GHS",
+      "tag": "KYC Verified"
+    }
+  },
+  "security": {
+    "title": "Security at Every Layer",
+    "subtitle": "Regulatory-grade protection for everyday exchanges",
+    "items": [
+      { "title": "KYC Verification", "desc": "Every user and seller is identity-verified before transacting." },
+      { "title": "Escrow Engine", "desc": "Funds are cryptographically locked until both parties confirm." },
+      { "title": "Transaction Logs", "desc": "Every action is immutably recorded for full auditability." },
+      { "title": "Dispute Resolution", "desc": "Trained mediators handle any contested transactions fairly." },
+      { "title": "Live Tracking", "desc": "Real-time status updates at each stage of the transaction." },
+      { "title": "Seller Verification", "desc": "Multi-step seller onboarding ensures only trusted traders list." }
+    ]
+  },
+  "testimonials": {
+    "title": "What Early Users Are Saying",
+    "subtitle": "Real people. Real exchanges.",
+    "items": [
+      {
+        "name": "Ama Owusu",
+        "location": "Accra, Ghana",
+        "text": "I used to send money through WhatsApp groups and always worried about getting scammed. HOXA's escrow system means I never have to worry again. It's like having a bank watching over every deal.",
+        "rating": 5,
+        "avatar": "AO"
+      },
+      {
+        "name": "Ibrahim Diallo",
+        "location": "Abidjan, Côte d'Ivoire",
+        "text": "As a seller, HOXA gives me tools I never had before — reputation score, transaction history, dispute support. My clients trust me more and I earn more.",
+        "rating": 5,
+        "avatar": "ID"
+      },
+      {
+        "name": "Efua Mensah",
+        "location": "Kumasi, Ghana",
+        "text": "The rate alerts feature alone is worth it. I waited for my target rate, got notified, and completed the exchange in minutes. No more refreshing chats all day.",
+        "rating": 5,
+        "avatar": "EM"
+      },
+      {
+        "name": "Moussa Traoré",
+        "location": "Dakar, Senegal",
+        "text": "Clean app, fast transactions, zero stress. HOXA is exactly what the West African market needed. I've already told everyone in my network.",
+        "rating": 5,
+        "avatar": "MT"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about HOXA",
+    "items": [
+      {
+        "q": "What is HOXA?",
+        "a": "HOXA is a peer-to-peer currency exchange platform for the CFA ⇄ GHS corridor, secured by an escrow system that protects both buyers and sellers."
+      },
+      {
+        "q": "How does the escrow system work?",
+        "a": "When a buyer initiates an exchange, funds are locked in HOXA's escrow. The seller is notified and the transaction begins. Only after the buyer uploads proof of payment and the seller confirms receipt does escrow release the funds."
+      },
+      {
+        "q": "Who can become a seller on HOXA?",
+        "a": "Any individual or business operating in the CFA/GHS corridor can apply. Sellers must complete KYC verification and agree to HOXA's trading guidelines."
+      },
+      {
+        "q": "What happens if there's a dispute?",
+        "a": "HOXA has a dedicated dispute resolution team. If either party raises a concern, our mediators review transaction logs and communication history to reach a fair resolution."
+      },
+      {
+        "q": "Is HOXA available on iOS and Android?",
+        "a": "HOXA is currently in development. Join the waitlist to be among the first notified at launch."
+      },
+      {
+        "q": "How are exchange rates determined?",
+        "a": "Sellers set their own rates based on market conditions. HOXA displays live market benchmarks so buyers can compare and choose the best available rate."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Be First. Exchange Smarter.",
+    "subtitle": "Join the HOXA waitlist and get early access when we launch. Leave your WhatsApp number and we'll reach you directly.",
+    "inputPlaceholder": "WhatsApp number with country code",
+    "inputHint": "e.g. +233 XX XXX XXXX or +225 XX XX XX XX XX",
+    "submitButton": "Join Waitlist",
+    "submitting": "Joining...",
+    "successTitle": "Congratulations, You're on the list!",
+    "successMessage": "We'll reach you on WhatsApp when HOXA launches. Tell a friend.",
+    "disclaimer": "We only use your number to contact you about HOXA. No spam, ever."
+  },
+  "footer": {
+    "tagline": "Africa's Trusted P2P Exchange",
+    "description": "Secure, structured, and built for the West African corridor.",
+    "links": {
+      "product": "Product",
+      "howItWorks": "How It Works",
+      "features": "Features",
+      "security": "Security",
+      "company": "Company",
+      "about": "About",
+      "careers": "Careers",
+      "contact": "Contact",
+      "legal": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "copyright": "© 2026 HOXA. All rights reserved.",
+    "madeIn": "Made for Africa."
+  },
+  "modal": {
+    "title": "Join the Waitlist",
+    "subtitle": "Enter your WhatsApp number to get priority access at launch.",
+    "selectCountry": "Country",
+    "phonePlaceholder": "Phone number",
+    "submitButton": "Join Now",
+    "submitting": "Joining...",
+    "successTitle": "Congratulations, You're on the list!",
+    "successMessage": "We'll reach you on WhatsApp when HOXA launches.",
+    "disclaimer": "No spam. HOXA updates only.",
+    "invalidNumber": "Please enter a valid phone number.",
+    "close": "Close"
+  }
+}

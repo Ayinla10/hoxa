@@ -1,0 +1,215 @@
+{
+  "nav": {
+    "howItWorks": "Fonctionnement",
+    "features": "Fonctionnalités",
+    "security": "Sécurité",
+    "faq": "FAQ",
+    "startExchanging": "Commencer",
+    "becomeASeller": "Devenir marchand"
+  },
+  "hero": {
+    "headline": "La Plateforme d'Echange P2P de Référence en Afrique",
+    "subheadline": "HOXA sécurise chaque transaction grâce à l'Escrow, un suivi en temps réel, un système de réputation des marchands et une confirmation de paiement blindée.",
+    "ctaPrimary": "Rejoindre la liste d'attente",
+    "ctaSecondary": "Devenir marchand",
+    "badge": "Protégé par Escrow",
+    "walletLabel": "Portefeuille HOXA",
+    "balanceLabel": "Solde disponible",
+    "balance": "GHS 12 450,00",
+    "rateLabel": "Taux en direct",
+    "rate": "1 CFA = 16,13 GHS",
+    "statusLabel": "Transaction sécurisée",
+    "statusValue": "Escrow actif"
+  },
+  "trust": {
+    "title": "La confiance comme fondation, la technologie comme garantie",
+    "items": [
+      { "label": "Escrow intégré", "desc": "Les fonds restent bloqués jusqu'à validation des deux parties" },
+      { "label": "Marchands vérifiés KYC", "desc": "Chaque marchand est rigoureusement identifié avant d'accéder à la plateforme" },
+      { "label": "Suivi en temps réel", "desc": "Chaque étape de votre transaction est visible en direct" },
+      { "label": "Confirmation sécurisée", "desc": "Le paiement est certifié avant tout déblocage des fonds" },
+      { "label": "Réputation vérifiable", "desc": "Échangez uniquement avec des marchands dont l'historique est public" }
+    ]
+  },
+  "howItWorks": {
+    "title": "Comment fonctionne HOXA",
+    "subtitle": "Quatre étapes. Un échange sans risque.",
+    "steps": [
+      { "step": "01", "title": "Choisissez votre marchand", "desc": "Comparez les marchands vérifiés selon leur note, leur historique et leurs taux en temps réel." },
+      { "step": "02", "title": "Payez en toute sécurité", "desc": "Lancez le transfert. Vos fonds sont immédiatement placés en Escrow jusqu'à finalisation." },
+      { "step": "03", "title": "Soumettez votre preuve de paiement", "desc": "Téléchargez votre confirmation de virement directement depuis l'application." },
+      { "step": "04", "title": "L'Escrow finalise automatiquement", "desc": "Le marchand confirme la réception et les fonds sont libérés sans délai." }
+    ]
+  },
+  "features": {
+    "title": "Tout ce qu'il faut pour échanger sans compromis",
+    "subtitle": "Conçu spécifiquement pour le corridor CFA ⇄ GHS",
+    "items": [
+      { "title": "Transactions sous Escrow", "desc": "Vos fonds sont bloqués et libérés uniquement après validation mutuelle de l'échange." },
+      { "title": "Suivi en temps réel", "desc": "Suivez chaque transaction avec des mises à jour à chaque étape clé." },
+      { "title": "Marchands certifiés", "desc": "Chaque marchand passe une vérification KYC complète avant d'être autorisé sur HOXA." },
+      { "title": "Système de réputation", "desc": "Des notes transparentes basées sur des échanges réels pour guider chaque décision." },
+      { "title": "Alertes de taux", "desc": "Soyez notifié instantanément dès que votre taux cible est disponible sur le marché." },
+      { "title": "Résolution des litiges", "desc": "Une équipe dédiée intervient sur tout échange contesté pour garantir une issue équitable." }
+    ]
+  },
+  "escrow": {
+    "title": "L'Escrow, votre bouclier",
+    "subtitle": "Fini de faire confiance à un inconnu avec votre argent",
+    "body": "Les échanges P2P classiques reposent sur la parole. HOXA repose sur l'Escrow. Dès le départ, vos fonds sont verrouillés et ne sont libérés qu'au moment où les deux parties confirment que la transaction est complète. Ni avant. Ni à la discrétion de quiconque.",
+    "points": [
+      "Fonds verrouillés dès l'initiation de l'échange",
+      "Libération conditionnée à la double confirmation",
+      "Bouclier automatique contre toute tentative de fraude",
+      "Équipe de médiation disponible en cas de litige"
+    ],
+    "tagline": "Plus sûr que WhatsApp. Plus fiable que la rue."
+  },
+  "appShowcase": {
+    "title": "L'échange intelligent, dans votre poche",
+    "subtitle": "HOXA sur mobile — pensé pour la rapidité, la clarté et la sécurité sans friction",
+    "features": [
+      "Recherche de marchand en un geste",
+      "Tableau de bord des taux en direct",
+      "Suivi du statut Escrow en temps réel",
+      "Notifications instantanées à chaque étape"
+    ]
+  },
+  "reputation": {
+    "title": "Un marché où la réputation a de la valeur",
+    "subtitle": "Sachez exactement à qui vous confiez votre argent",
+    "body": "Sur HOXA, chaque marchand bâtit une réputation publique au fil de ses échanges vérifiés. Score de complétion, historique des transactions, avis des acheteurs — tout est visible, rien n'est masqué.",
+    "stats": [
+      { "value": "98%", "label": "Taux de complétion" },
+      { "value": "4,9★", "label": "Note moyenne marchands" },
+      { "value": "0", "label": "Litiges non résolus" }
+    ],
+    "sellerCard": {
+      "name": "Kofi A.",
+      "badge": "Top marchand",
+      "trades": "342 échanges",
+      "rating": "4,9",
+      "rate": "1 CFA = 16,13 GHS",
+      "tag": "Vérifié KYC"
+    }
+  },
+  "security": {
+    "title": "La sécurité à chaque niveau",
+    "subtitle": "Une protection de standard réglementaire pour des échanges du quotidien",
+    "items": [
+      { "title": "Vérification KYC", "desc": "Chaque utilisateur et marchand est identifié de manière rigoureuse avant toute transaction." },
+      { "title": "Escrow", "desc": "Les fonds sont verrouillés jusqu'à confirmation des deux parties — sans exception." },
+      { "title": "Journaux immuables", "desc": "Chaque action est enregistrée de façon permanente pour une traçabilité totale." },
+      { "title": "Résolution des litiges", "desc": "Des médiateurs formés traitent chaque contestation avec équité et transparence." },
+      { "title": "Traçabilité en direct", "desc": "Mises à jour en temps réel à chaque jalon de la transaction." },
+      { "title": "Onboarding marchand strict", "desc": "Un processus multi-étapes garantit que seuls les marchands fiables accèdent à la plateforme." }
+    ]
+  },
+  "testimonials": {
+    "title": "Ce qu'ils disent de HOXA",
+    "subtitle": "Des utilisateurs réels. Des échanges concrets.",
+    "items": [
+      {
+        "name": "Ama Owusu",
+        "location": "Accra, Ghana",
+        "text": "Avant, j'envoyais de l'argent via des groupes WhatsApp en croisant les doigts. Avec HOXA, l'Escrow me protège à chaque fois. C'est la différence entre espérer et avoir la certitude.",
+        "rating": 5,
+        "avatar": "AO"
+      },
+      {
+        "name": "Ibrahim Diallo",
+        "location": "Abidjan, Côte d'Ivoire",
+        "text": "En tant que marchand, HOXA m'a donné des outils que je n'avais nulle part ailleurs — score de réputation, historique complet, support en cas de litige. Mes clients me font plus confiance, et mes revenus ont suivi.",
+        "rating": 5,
+        "avatar": "ID"
+      },
+      {
+        "name": "Efua Mensah",
+        "location": "Kumasi, Ghana",
+        "text": "Les alertes de taux ont changé ma façon d'échanger. J'attends mon taux, je reçois la notification, et c'est réglé en quelques minutes. Fini de surveiller les chats toute la journée.",
+        "rating": 5,
+        "avatar": "EM"
+      },
+      {
+        "name": "Moussa Traoré",
+        "location": "Dakar, Sénégal",
+        "text": "Interface épurée, transactions rapides, aucun stress. HOXA est exactement ce que le marché ouest-africain attendait. Je l'ai recommandé à tout mon réseau dès le premier jour.",
+        "rating": 5,
+        "avatar": "MT"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "subtitle": "Tout ce que vous devez savoir sur HOXA",
+    "items": [
+      {
+        "q": "Qu'est-ce que HOXA ?",
+        "a": "HOXA est une plateforme d'échange de devises pair-à-pair dédiée au corridor CFA ⇄ GHS, sécurisée par l'Escrow pour protéger acheteurs et marchands à chaque transaction."
+      },
+      {
+        "q": "Comment fonctionne l'Escrow ?",
+        "a": "Dès qu'un acheteur initie un échange, les fonds sont verrouillés dans l'Escrow HOXA. Le marchand est notifié et la transaction débute. Les fonds ne sont libérés qu'après que l'acheteur soumet sa preuve de paiement et que le marchand confirme la réception."
+      },
+      {
+        "q": "Qui peut devenir marchand sur HOXA ?",
+        "a": "Toute personne ou entreprise active dans le corridor CFA/GHS peut soumettre une candidature. Les marchands doivent compléter une vérification KYC complète et accepter la charte de trading HOXA."
+      },
+      {
+        "q": "Que se passe-t-il en cas de litige ?",
+        "a": "HOXA dispose d'une équipe de médiation dédiée. En cas de contestation, nos médiateurs analysent les journaux de transaction et les historiques d'échange pour parvenir à une résolution équitable et documentée."
+      },
+      {
+        "q": "HOXA est-il disponible sur iOS et Android ?",
+        "a": "HOXA est en cours de développement. Rejoignez la liste d'attente pour être parmi les premiers à y accéder dès le lancement."
+      },
+      {
+        "q": "Comment les taux de change sont-ils fixés ?",
+        "a": "Les marchands définissent leurs propres taux en fonction des conditions du marché. HOXA affiche les références de marché en temps réel pour permettre aux acheteurs de comparer et choisir l'offre la plus compétitive."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Soyez parmi les premiers. Échangez autrement.",
+    "subtitle": "Rejoignez la liste d'attente HOXA et bénéficiez d'un accès prioritaire au lancement. Laissez votre numéro WhatsApp — on vous contacte directement.",
+    "inputPlaceholder": "Numéro WhatsApp avec indicatif pays",
+    "inputHint": "ex. +221 XX XXX XXXX ou +225 XX XX XX XX XX",
+    "submitButton": "Rejoindre la liste",
+    "submitting": "Inscription...",
+    "successTitle": "Félicitations, vous êtes sur la liste.",
+    "successMessage": "Nous vous contacterons sur WhatsApp dès le lancement de HOXA. Parlez-en autour de vous.",
+    "disclaimer": "Votre numéro est utilisé uniquement pour vous informer du lancement. Aucun spam, jamais."
+  },
+  "footer": {
+    "tagline": "La Plateforme d'Echange P2P de Référence en Afrique",
+    "description": "Sécurisée, structurée, conçue pour le corridor ouest-africain.",
+    "links": {
+      "product": "Produit",
+      "howItWorks": "Fonctionnement",
+      "features": "Fonctionnalités",
+      "security": "Sécurité",
+      "company": "Entreprise",
+      "about": "À propos",
+      "careers": "Recrutement",
+      "contact": "Contact",
+      "legal": "Mentions légales",
+      "privacy": "Politique de confidentialité",
+      "terms": "Conditions d'utilisation"
+    },
+    "copyright": "© 2026 HOXA. Tous droits réservés.",
+    "madeIn": "Fait pour l'Afrique."
+  },
+  "modal": {
+    "title": "Rejoindre la liste d'attente",
+    "subtitle": "Laissez votre numéro WhatsApp pour un accès prioritaire au lancement.",
+    "selectCountry": "Pays",
+    "phonePlaceholder": "Numéro de téléphone",
+    "submitButton": "Rejoindre",
+    "submitting": "Inscription...",
+    "successTitle": "Félicitations, vous êtes sur la liste.",
+    "successMessage": "Nous vous contacterons sur WhatsApp dès le lancement de HOXA.",
+    "disclaimer": "Aucun spam. Uniquement des actualités HOXA.",
+    "invalidNumber": "Veuillez entrer un numéro valide.",
+    "close": "Fermer"
+  }
+}
