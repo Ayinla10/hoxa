@@ -27,6 +27,26 @@ const fadeUp: Variants = {
   }),
 }
 
+const ORBIT_FLAGS = [
+  { flag: '🇬🇭', name: 'Ghana' },
+  { flag: '🇸🇳', name: 'Senegal' },
+  { flag: '🇨🇮', name: "Côte d'Ivoire" },
+  { flag: '🇲🇱', name: 'Mali' },
+  { flag: '🇧🇫', name: 'Burkina Faso' },
+  { flag: '🇳🇪', name: 'Niger' },
+  { flag: '🇹🇬', name: 'Togo' },
+  { flag: '🇧🇯', name: 'Benin' },
+  { flag: '🇬🇼', name: 'Guinea-Bissau' },
+  { flag: '🇨🇲', name: 'Cameroon' },
+  { flag: '🇹🇩', name: 'Chad' },
+  { flag: '🇬🇦', name: 'Gabon' },
+  { flag: '🇨🇬', name: 'Congo' },
+  { flag: '🇨🇫', name: 'CAR' },
+  { flag: '🇬🇶', name: 'Eq. Guinea' },
+]
+
+const RADIUS = 185 // orbit radius in px
+
 export default function Hero({ dict, onWaitlistClick }: { dict: HeroDict; onWaitlistClick: () => void }) {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#0a2e1a] via-[#0F6A3D] to-[#0d4a2c]">
@@ -42,6 +62,7 @@ export default function Hero({ dict, onWaitlistClick }: { dict: HeroDict; onWait
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
           {/* Left: Copy */}
           <div className="text-white">
             <motion.div
@@ -86,63 +107,106 @@ export default function Hero({ dict, onWaitlistClick }: { dict: HeroDict; onWait
             </motion.div>
           </div>
 
-          {/* Right: UI Cards */}
+          {/* Right: Orbit + Card */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex justify-center lg:justify-end"
+            transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
+            className="relative flex items-center justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-sm">
-              {/* Main wallet card */}
-              <div className="relative bg-gradient-to-br from-[#1a7a48] to-[#0d4a2c] rounded-2xl p-6 shadow-2xl border border-white/10">
-                <div className="flex items-center justify-between mb-6">
+            {/* Orbit container — fixed square so flags have room */}
+            <div
+              className="relative flex items-center justify-center"
+              style={{ width: RADIUS * 2 + 80, height: RADIUS * 2 + 80 }}
+            >
+              {/* Subtle orbit ring */}
+              <div
+                className="absolute rounded-full border border-white/10"
+                style={{ width: RADIUS * 2, height: RADIUS * 2 }}
+              />
+
+              {/* Rotating ring — flags orbit clockwise */}
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+              >
+                {ORBIT_FLAGS.map((item, i) => {
+                  const angle = (i / ORBIT_FLAGS.length) * 360
+                  const rad = (angle * Math.PI) / 180
+                  const x = Math.cos(rad) * RADIUS
+                  const y = Math.sin(rad) * RADIUS
+                  return (
+                    <motion.div
+                      key={item.name}
+                      className="absolute"
+                      style={{ left: '50%', top: '50%', x: x - 18, y: y - 18 }}
+                      // Counter-rotate so flags stay upright while orbiting
+                      animate={{ rotate: -360 }}
+                      transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+                      title={item.name}
+                    >
+                      <div className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-lg shadow-md hover:bg-white/20 transition-colors cursor-default select-none">
+                        {item.flag}
+                      </div>
+                    </motion.div>
+                  )
+                })}
+              </motion.div>
+
+              {/* Central wallet card */}
+              <div className="relative z-10 w-64">
+                {/* Main wallet card */}
+                <div className="relative bg-gradient-to-br from-[#1a7a48] to-[#0d4a2c] rounded-2xl p-5 shadow-2xl border border-white/10">
+                  <div className="flex items-center justify-between mb-5">
+                    <div>
+                      <p className="text-white/50 text-xs font-medium uppercase tracking-wider">{dict.walletLabel}</p>
+                      <p className="text-white/70 text-xs mt-0.5">{dict.balanceLabel}</p>
+                    </div>
+                    <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">H</span>
+                    </div>
+                  </div>
+                  <p className="text-white text-2xl font-bold tracking-tight mb-5">{dict.balance}</p>
+                  <div className="flex items-center justify-between p-3 bg-white/8 rounded-xl border border-white/10">
+                    <div className="flex items-center gap-2">
+                      <TrendingUp size={14} className="text-green-300" />
+                      <span className="text-white/60 text-xs">{dict.rateLabel}</span>
+                    </div>
+                    <span className="text-green-300 text-xs font-semibold">{dict.rate}</span>
+                  </div>
+                </div>
+
+                {/* Status card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 16, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ delay: 0.8, duration: 0.5 }}
+                  className="absolute -bottom-5 -left-6 bg-white rounded-xl p-3 shadow-xl border border-gray-100 flex items-center gap-2.5 min-w-[160px]"
+                >
+                  <div className="w-7 h-7 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 size={14} className="text-[#0F6A3D]" />
+                  </div>
                   <div>
-                    <p className="text-white/50 text-xs font-medium uppercase tracking-wider">{dict.walletLabel}</p>
-                    <p className="text-white/70 text-xs mt-0.5">{dict.balanceLabel}</p>
+                    <p className="text-gray-400 text-[10px] font-medium">{dict.statusLabel}</p>
+                    <p className="text-gray-900 text-xs font-semibold">{dict.statusValue}</p>
                   </div>
-                  <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">H</span>
-                  </div>
-                </div>
-                <p className="text-white text-3xl font-bold tracking-tight mb-6">{dict.balance}</p>
-                <div className="flex items-center justify-between p-3 bg-white/8 rounded-xl border border-white/10">
-                  <div className="flex items-center gap-2">
-                    <TrendingUp size={14} className="text-green-300" />
-                    <span className="text-white/60 text-xs">{dict.rateLabel}</span>
-                  </div>
-                  <span className="text-green-300 text-xs font-semibold">{dict.rate}</span>
-                </div>
+                </motion.div>
+
+                {/* Floating rate pill */}
+                <motion.div
+                  initial={{ opacity: 0, y: -16, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ delay: 1.0, duration: 0.5 }}
+                  className="absolute -top-4 -right-5 bg-[#0F6A3D] rounded-xl px-3 py-2 shadow-lg border border-white/10"
+                >
+                  <p className="text-white/60 text-[10px] font-medium">CFA → GHS</p>
+                  <p className="text-white text-sm font-bold">16.13</p>
+                </motion.div>
               </div>
-
-              {/* Status card */}
-              <motion.div
-                initial={{ opacity: 0, y: 16, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute -bottom-5 -left-6 bg-white rounded-xl p-3.5 shadow-xl border border-gray-100 flex items-center gap-3 min-w-[180px]"
-              >
-                <div className="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 size={16} className="text-[#0F6A3D]" />
-                </div>
-                <div>
-                  <p className="text-gray-400 text-[10px] font-medium">{dict.statusLabel}</p>
-                  <p className="text-gray-900 text-xs font-semibold">{dict.statusValue}</p>
-                </div>
-              </motion.div>
-
-              {/* Floating rate pill */}
-              <motion.div
-                initial={{ opacity: 0, y: -16, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ delay: 1.0, duration: 0.5 }}
-                className="absolute -top-4 -right-4 bg-[#0F6A3D] rounded-xl px-4 py-2.5 shadow-lg"
-              >
-                <p className="text-white/60 text-[10px] font-medium">GHS → CFA</p>
-                <p className="text-white text-sm font-bold">0.0621</p>
-              </motion.div>
             </div>
           </motion.div>
+
         </div>
       </div>
 
