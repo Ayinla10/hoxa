@@ -21,7 +21,7 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'", // required for Next.js
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
-      "img-src 'self' data: blob:",
+      "img-src 'self' data: blob: https://flagcdn.com",
       `connect-src 'self' https://wnnkqnmhlfzzuxmmfyqx.supabase.co`,
       "frame-ancestors 'none'",
       "base-uri 'self'",
@@ -31,6 +31,11 @@ const securityHeaders = [
 ]
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'flagcdn.com' },
+    ],
+  },
   async headers() {
     return [
       {

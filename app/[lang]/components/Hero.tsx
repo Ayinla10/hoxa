@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion, type Variants } from 'framer-motion'
 import { Shield, ArrowRight, TrendingUp, CheckCircle2 } from 'lucide-react'
 
@@ -28,24 +29,24 @@ const fadeUp: Variants = {
 }
 
 const ORBIT_FLAGS = [
-  { flag: '🇬🇭', name: 'Ghana' },
-  { flag: '🇸🇳', name: 'Senegal' },
-  { flag: '🇨🇮', name: "Côte d'Ivoire" },
-  { flag: '🇲🇱', name: 'Mali' },
-  { flag: '🇧🇫', name: 'Burkina Faso' },
-  { flag: '🇳🇪', name: 'Niger' },
-  { flag: '🇹🇬', name: 'Togo' },
-  { flag: '🇧🇯', name: 'Benin' },
-  { flag: '🇬🇼', name: 'Guinea-Bissau' },
-  { flag: '🇨🇲', name: 'Cameroon' },
-  { flag: '🇹🇩', name: 'Chad' },
-  { flag: '🇬🇦', name: 'Gabon' },
-  { flag: '🇨🇬', name: 'Congo' },
-  { flag: '🇨🇫', name: 'CAR' },
-  { flag: '🇬🇶', name: 'Eq. Guinea' },
+  { iso: 'gh', name: 'Ghana' },
+  { iso: 'sn', name: 'Senegal' },
+  { iso: 'ci', name: "Côte d'Ivoire" },
+  { iso: 'ml', name: 'Mali' },
+  { iso: 'bf', name: 'Burkina Faso' },
+  { iso: 'ne', name: 'Niger' },
+  { iso: 'tg', name: 'Togo' },
+  { iso: 'bj', name: 'Benin' },
+  { iso: 'gw', name: 'Guinea-Bissau' },
+  { iso: 'cm', name: 'Cameroon' },
+  { iso: 'td', name: 'Chad' },
+  { iso: 'ga', name: 'Gabon' },
+  { iso: 'cg', name: 'Congo' },
+  { iso: 'cf', name: 'CAR' },
+  { iso: 'gq', name: 'Eq. Guinea' },
 ]
 
-const RADIUS = 185 // orbit radius in px
+const RADIUS = 195 // orbit radius in px
 
 export default function Hero({ dict, onWaitlistClick }: { dict: HeroDict; onWaitlistClick: () => void }) {
   return (
@@ -140,14 +141,20 @@ export default function Hero({ dict, onWaitlistClick }: { dict: HeroDict; onWait
                     <motion.div
                       key={item.name}
                       className="absolute"
-                      style={{ left: '50%', top: '50%', x: x - 18, y: y - 18 }}
-                      // Counter-rotate so flags stay upright while orbiting
+                      style={{ left: '50%', top: '50%', x: x - 24, y: y - 24 }}
                       animate={{ rotate: -360 }}
                       transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
                       title={item.name}
                     >
-                      <div className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-lg shadow-md hover:bg-white/20 transition-colors cursor-default select-none">
-                        {item.flag}
+                      <div className="w-12 h-12 rounded-full bg-white/15 backdrop-blur-md border-2 border-white/30 flex items-center justify-center shadow-lg shadow-black/20 hover:scale-110 transition-transform cursor-default overflow-hidden">
+                        <Image
+                          src={`https://flagcdn.com/w40/${item.iso}.png`}
+                          alt={item.name}
+                          width={36}
+                          height={24}
+                          className="object-cover rounded-sm"
+                          unoptimized
+                        />
                       </div>
                     </motion.div>
                   )
