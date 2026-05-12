@@ -67,10 +67,8 @@ export default function OrbitRing() {
               title={item.name}
             >
               <div className="w-12 h-12 rounded-full border-2 border-white/40 shadow-lg shadow-black/25 hover:scale-110 transition-transform cursor-default overflow-hidden">
-                <span
-                  className={`fi fi-${item.iso}`}
-                  style={{ width: '100%', height: '100%', display: 'block', backgroundSize: 'cover', backgroundPosition: 'center' }}
-                />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/flags/${item.iso}.svg`} alt={item.name} className="w-full h-full object-cover" />
               </div>
             </motion.div>
           )

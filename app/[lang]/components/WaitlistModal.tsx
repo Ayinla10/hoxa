@@ -49,12 +49,9 @@ export const COUNTRIES: Country[] = [
 const CURRENCY_LABEL: Record<string, string> = { GHS: 'GHS', XOF: 'XOF', XAF: 'XAF' }
 
 function FlagImg({ iso, size = 24 }: { iso: string; size?: number }) {
-  return (
-    <span
-      className={`fi fi-${iso.toLowerCase()}`}
-      style={{ width: size, height: Math.round(size * 0.75), display: 'inline-block', borderRadius: 2, backgroundSize: 'cover', flexShrink: 0 }}
-    />
-  )
+  const h = Math.round(size * 0.75)
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={`/flags/${iso.toLowerCase()}.svg`} alt={iso} width={size} height={h} style={{ borderRadius: 2, flexShrink: 0, objectFit: 'cover' }} />
 }
 
 function onlyDigits(s: string) {
