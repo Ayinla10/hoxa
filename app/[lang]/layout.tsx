@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '../globals.css'
+import ContentProtection from './components/ContentProtection'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -19,7 +20,8 @@ export default async function RootLayout({
   const { lang } = await params
   return (
     <html lang={lang} className={inter.variable}>
-      <body className="bg-white text-gray-900 antialiased" suppressHydrationWarning>
+      <body className="bg-white text-gray-900 antialiased select-none" suppressHydrationWarning>
+        <ContentProtection />
         {children}
       </body>
     </html>
