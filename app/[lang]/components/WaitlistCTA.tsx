@@ -43,6 +43,7 @@ export default function WaitlistCTA({ dict }: { dict: CTADict }) {
     const digits = phone.replace(/\D/g, '')
 
     const result = await submitWaitlist({
+      name: '',
       phone: digits,
       countryCode,
       countryName: 'Unknown',
