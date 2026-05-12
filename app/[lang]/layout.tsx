@@ -19,7 +19,7 @@ export default async function RootLayout({
   const { lang } = await params
   return (
     <html lang={lang} className={inter.variable}>
-      <body className="bg-white text-gray-900 antialiased">
+      <body className="bg-white text-gray-900 antialiased" suppressHydrationWarning>
         {children}
       </body>
     </html>
