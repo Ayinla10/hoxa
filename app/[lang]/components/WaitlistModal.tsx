@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, CheckCircle2, Loader2, ChevronDown, Search } from 'lucide-react'
 import { submitWaitlist } from '@/app/actions/waitlist'
@@ -55,13 +54,13 @@ function flagUrl(iso: string) {
 
 function FlagImg({ iso, size = 24 }: { iso: string; size?: number }) {
   return (
-    <Image
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
       src={flagUrl(iso)}
       alt={iso}
       width={size}
-      height={size * 0.67}
-      className="rounded-sm object-cover"
-      unoptimized
+      height={Math.round(size * 0.67)}
+      style={{ objectFit: 'cover', borderRadius: 2, display: 'block' }}
     />
   )
 }

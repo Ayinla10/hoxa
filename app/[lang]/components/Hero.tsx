@@ -1,8 +1,8 @@
 'use client'
 
-import Image from 'next/image'
 import { motion, type Variants } from 'framer-motion'
 import { Shield, ArrowRight, TrendingUp, CheckCircle2 } from 'lucide-react'
+import OrbitRing from './OrbitRing'
 
 type HeroDict = {
   headline: string
@@ -28,31 +28,12 @@ const fadeUp: Variants = {
   }),
 }
 
-const ORBIT_FLAGS = [
-  { iso: 'gh', name: 'Ghana' },
-  { iso: 'sn', name: 'Senegal' },
-  { iso: 'ci', name: "Côte d'Ivoire" },
-  { iso: 'ml', name: 'Mali' },
-  { iso: 'bf', name: 'Burkina Faso' },
-  { iso: 'ne', name: 'Niger' },
-  { iso: 'tg', name: 'Togo' },
-  { iso: 'bj', name: 'Benin' },
-  { iso: 'gw', name: 'Guinea-Bissau' },
-  { iso: 'cm', name: 'Cameroon' },
-  { iso: 'td', name: 'Chad' },
-  { iso: 'ga', name: 'Gabon' },
-  { iso: 'cg', name: 'Congo' },
-  { iso: 'cf', name: 'CAR' },
-  { iso: 'gq', name: 'Eq. Guinea' },
-]
-
-const RADIUS = 195 // orbit radius in px
-
 export default function Hero({ dict, onWaitlistClick }: { dict: HeroDict; onWaitlistClick: () => void }) {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#0a2e1a] via-[#0F6A3D] to-[#0d4a2c]">
       {/* Background texture */}
-      <div className="absolute inset-0 opacity-[0.04]"
+      <div
+        className="absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
           backgroundSize: '32px 32px',
@@ -62,7 +43,7 @@ export default function Hero({ dict, onWaitlistClick }: { dict: HeroDict; onWait
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0F6A3D]/30 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
           {/* Left: Copy */}
           <div className="text-white">
@@ -115,56 +96,13 @@ export default function Hero({ dict, onWaitlistClick }: { dict: HeroDict; onWait
             transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
             className="relative flex items-center justify-center lg:justify-end"
           >
-            {/* Orbit container — fixed square so flags have room */}
-            <div
-              className="relative flex items-center justify-center"
-              style={{ width: RADIUS * 2 + 80, height: RADIUS * 2 + 80 }}
-            >
-              {/* Subtle orbit ring */}
-              <div
-                className="absolute rounded-full border border-white/10"
-                style={{ width: RADIUS * 2, height: RADIUS * 2 }}
-              />
+            {/* OrbitRing wraps the card — renders client-only to avoid hydration mismatch */}
+            <div className="relative flex items-center justify-center">
+              <OrbitRing />
 
-              {/* Rotating ring — flags orbit clockwise */}
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-              >
-                {ORBIT_FLAGS.map((item, i) => {
-                  const angle = (i / ORBIT_FLAGS.length) * 360
-                  const rad = (angle * Math.PI) / 180
-                  const x = Math.cos(rad) * RADIUS
-                  const y = Math.sin(rad) * RADIUS
-                  return (
-                    <motion.div
-                      key={item.name}
-                      className="absolute"
-                      style={{ left: '50%', top: '50%', x: x - 24, y: y - 24 }}
-                      animate={{ rotate: -360 }}
-                      transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-                      title={item.name}
-                    >
-                      <div className="w-12 h-12 rounded-full bg-white/15 backdrop-blur-md border-2 border-white/30 flex items-center justify-center shadow-lg shadow-black/20 hover:scale-110 transition-transform cursor-default overflow-hidden">
-                        <Image
-                          src={`https://flagcdn.com/w40/${item.iso}.png`}
-                          alt={item.name}
-                          width={36}
-                          height={24}
-                          className="object-cover rounded-sm"
-                          unoptimized
-                        />
-                      </div>
-                    </motion.div>
-                  )
-                })}
-              </motion.div>
-
-              {/* Central wallet card */}
-              <div className="relative z-10 w-64">
-                {/* Main wallet card */}
-                <div className="relative bg-gradient-to-br from-[#1a7a48] to-[#0d4a2c] rounded-2xl p-5 shadow-2xl border border-white/10">
+              {/* Wallet card — centered inside the orbit */}
+              <div className="absolute z-10 w-60">
+                <div className="bg-gradient-to-br from-[#1a7a48] to-[#0d4a2c] rounded-2xl p-5 shadow-2xl border border-white/10">
                   <div className="flex items-center justify-between mb-5">
                     <div>
                       <p className="text-white/50 text-xs font-medium uppercase tracking-wider">{dict.walletLabel}</p>
@@ -184,12 +122,12 @@ export default function Hero({ dict, onWaitlistClick }: { dict: HeroDict; onWait
                   </div>
                 </div>
 
-                {/* Status card */}
+                {/* Status badge */}
                 <motion.div
                   initial={{ opacity: 0, y: 16, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ delay: 0.8, duration: 0.5 }}
-                  className="absolute -bottom-5 -left-6 bg-white rounded-xl p-3 shadow-xl border border-gray-100 flex items-center gap-2.5 min-w-[160px]"
+                  className="absolute -bottom-5 -left-8 bg-white rounded-xl p-3 shadow-xl border border-gray-100 flex items-center gap-2.5 min-w-[155px]"
                 >
                   <div className="w-7 h-7 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
                     <CheckCircle2 size={14} className="text-[#0F6A3D]" />
@@ -200,12 +138,12 @@ export default function Hero({ dict, onWaitlistClick }: { dict: HeroDict; onWait
                   </div>
                 </motion.div>
 
-                {/* Floating rate pill */}
+                {/* Rate pill */}
                 <motion.div
                   initial={{ opacity: 0, y: -16, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ delay: 1.0, duration: 0.5 }}
-                  className="absolute -top-4 -right-5 bg-[#0F6A3D] rounded-xl px-3 py-2 shadow-lg border border-white/10"
+                  className="absolute -top-4 -right-6 bg-[#0F6A3D] rounded-xl px-3 py-2 shadow-lg border border-white/10"
                 >
                   <p className="text-white/60 text-[10px] font-medium">CFA → GHS</p>
                   <p className="text-white text-sm font-bold">16.13</p>
@@ -220,7 +158,7 @@ export default function Hero({ dict, onWaitlistClick }: { dict: HeroDict; onWait
       {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path d="M0 60L1440 60L1440 20C1200 60 960 0 720 20C480 40 240 0 0 20L0 60Z" fill="white"/>
+          <path d="M0 60L1440 60L1440 20C1200 60 960 0 720 20C480 40 240 0 0 20L0 60Z" fill="white" />
         </svg>
       </div>
     </section>
