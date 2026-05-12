@@ -66,14 +66,10 @@ export default function OrbitRing() {
               transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
               title={item.name}
             >
-              <div className="w-12 h-12 rounded-full bg-white/15 backdrop-blur-md border-2 border-white/35 flex items-center justify-center shadow-lg shadow-black/25 hover:scale-110 transition-transform cursor-default overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`https://flagcdn.com/w40/${item.iso}.png`}
-                  alt={item.name}
-                  width={38}
-                  height={26}
-                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+              <div className="w-12 h-12 rounded-full border-2 border-white/40 shadow-lg shadow-black/25 hover:scale-110 transition-transform cursor-default overflow-hidden">
+                <span
+                  className={`fi fi-${item.iso}`}
+                  style={{ width: '100%', height: '100%', display: 'block', backgroundSize: 'cover', backgroundPosition: 'center' }}
                 />
               </div>
             </motion.div>

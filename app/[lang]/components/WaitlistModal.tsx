@@ -48,19 +48,11 @@ export const COUNTRIES: Country[] = [
 
 const CURRENCY_LABEL: Record<string, string> = { GHS: 'GHS', XOF: 'XOF', XAF: 'XAF' }
 
-function flagUrl(iso: string) {
-  return `https://flagcdn.com/w40/${iso.toLowerCase()}.png`
-}
-
 function FlagImg({ iso, size = 24 }: { iso: string; size?: number }) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={flagUrl(iso)}
-      alt={iso}
-      width={size}
-      height={Math.round(size * 0.67)}
-      style={{ objectFit: 'cover', borderRadius: 2, display: 'block' }}
+    <span
+      className={`fi fi-${iso.toLowerCase()}`}
+      style={{ width: size, height: Math.round(size * 0.75), display: 'inline-block', borderRadius: 2, backgroundSize: 'cover', flexShrink: 0 }}
     />
   )
 }
