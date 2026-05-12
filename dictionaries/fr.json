@@ -202,8 +202,10 @@
   "modal": {
     "title": "Rejoindre la liste d'attente",
     "subtitle": "Laissez votre numéro WhatsApp pour un accès prioritaire au lancement.",
+    "namePlaceholder": "Nom complet",
     "selectCountry": "Pays",
-    "phonePlaceholder": "Numéro de téléphone",
+    "phonePlaceholder": "Numéro WhatsApp",
+    "invalidName": "Veuillez entrer votre nom.",
     "submitButton": "Rejoindre",
     "submitting": "Inscription...",
     "successTitle": "Félicitations, vous êtes sur la liste.",

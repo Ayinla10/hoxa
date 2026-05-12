@@ -8,6 +8,7 @@ import { submitWaitlist } from '@/app/actions/waitlist'
 type ModalDict = {
   title: string
   subtitle: string
+  namePlaceholder: string
   selectCountry: string
   phonePlaceholder: string
   submitButton: string
@@ -16,6 +17,7 @@ type ModalDict = {
   successMessage: string
   disclaimer: string
   invalidNumber: string
+  invalidName: string
   close: string
 }
 
@@ -72,6 +74,7 @@ export default function WaitlistModal({
   onClose: () => void
 }) {
   const [selected, setSelected] = useState<Country>(COUNTRIES[0])
+  const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [search, setSearch] = useState('')
@@ -111,6 +114,10 @@ export default function WaitlistModal({
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setErrorMsg('')
+    if (!name.trim()) {
+      setErrorMsg(dict.invalidName)
+      return
+    }
     const digits = onlyDigits(phone)
     if (!isValidNumber(digits, selected)) {
       setErrorMsg(dict.invalidNumber)
@@ -119,6 +126,7 @@ export default function WaitlistModal({
     setStatus('loading')
     try {
       const result = await submitWaitlist({
+        name: name.trim(),
         phone: digits,
         countryCode: selected.code,
         countryName: selected.name,
@@ -146,6 +154,7 @@ export default function WaitlistModal({
     onClose()
     setTimeout(() => {
       setStatus('idle')
+      setName('')
       setPhone('')
       setErrorMsg('')
     }, 300)
@@ -206,6 +215,14 @@ export default function WaitlistModal({
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => { setName(e.target.value); setErrorMsg('') }}
+                      placeholder={dict.namePlaceholder}
+                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:border-[#0F6A3D] focus:ring-2 focus:ring-[#0F6A3D]/10 transition-all"
+                      disabled={status === 'loading'}
+                    />
                     <div>
                       <div className="flex gap-2">
                         {/* Country selector */}
@@ -299,7 +316,7 @@ export default function WaitlistModal({
 
                     <button
                       type="submit"
-                      disabled={status === 'loading' || !phone.trim()}
+                      disabled={status === 'loading' || !name.trim() || !phone.trim()}
                       className="w-full py-4 rounded-xl bg-gradient-to-r from-[#0F6A3D] to-[#1F8A4D] text-white font-semibold text-sm hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-green-900/20"
                     >
                       {status === 'loading' ? (

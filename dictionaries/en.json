@@ -202,8 +202,10 @@
   "modal": {
     "title": "Join the Waitlist",
     "subtitle": "Enter your WhatsApp number to get priority access at launch.",
+    "namePlaceholder": "Full name",
     "selectCountry": "Country",
-    "phonePlaceholder": "Phone number",
+    "phonePlaceholder": "WhatsApp number",
+    "invalidName": "Please enter your name.",
     "submitButton": "Join Now",
     "submitting": "Joining...",
     "successTitle": "Congratulations, You're on the list!",

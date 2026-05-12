@@ -5,6 +5,7 @@ import { createHash } from 'crypto'
 import { createServiceClient } from '@/lib/supabase/server'
 
 type WaitlistInput = {
+  name: string
   phone: string
   countryCode: string
   countryName: string
@@ -30,6 +31,9 @@ export async function submitWaitlist(input: WaitlistInput): Promise<WaitlistResu
     // ── 1. Validate & sanitise ──────────────────────────────────────────────
     const digits = sanitisePhone(input.phone)
     if (!digits) return { error: 'invalid_phone' }
+
+    const name = input.name.replace(/[^a-zA-ZÀ-ÿ '\-\.]/g, '').trim().slice(0, 100)
+    if (!name) return { error: 'invalid_phone' }
 
     const countryCode = input.countryCode.replace(/[^+\d]/g, '')
     const countryName = input.countryName.replace(/[^a-zA-ZÀ-ÿ '\-\.]/g, '').slice(0, 80)
@@ -74,6 +78,7 @@ export async function submitWaitlist(input: WaitlistInput): Promise<WaitlistResu
 
     // ── 5. Insert ───────────────────────────────────────────────────────────
     const { error: insertErr } = await supabase.from('waitlist').insert({
+      name,
       phone: fullPhone,
       country_code: countryCode,
       country_name: countryName,
